@@ -2,14 +2,14 @@ FROM python:3.11-slim
 
 WORKDIR /app
 
-# Copy the requirements file from the backend folder
-COPY backend/requirements.txt .
+# Copy the requirements file from the current folder (backend)
+COPY requirements.txt .
 
 # Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the entire backend directory into the container
-COPY backend/ .
+COPY . .
 
 # Expose the port (Render sets the PORT environment variable)
 EXPOSE 10000
